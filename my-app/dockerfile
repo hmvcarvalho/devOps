@@ -1,0 +1,12 @@
+FROM node:16-slim
+
+WORKDIR /src
+
+COPY . /src/
+
+RUN npm install -g @angular/cli@9.0.4
+RUN npm i
+
+EXPOSE 4200
+
+CMD ["npm", "start"]
