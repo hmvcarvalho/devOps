@@ -1,11 +1,8 @@
-FROM node
-
-WORKDIR /src
-
-COPY . /src/
-
-RUN npm i
-
+FROM node:10
+WORKDIR /root/
+COPY ./my-app/dist ./my-app/dist
+COPY package*.json ./
+RUN npm install
+COPY server.js .
 EXPOSE 3080
-
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
